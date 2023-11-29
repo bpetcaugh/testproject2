@@ -15,6 +15,17 @@ using namespace vex;
 competition Competition;
 
 // define your global instances of motors and other devices here
+// Robot configuration code.
+controller Controller1 = controller(primary);
+motor leftMotorA = motor(PORT1, ratio6_1, false);
+motor leftMotorB = motor(PORT2, ratio6_1, false);
+motor_group LeftDriveSmart = motor_group(leftMotorA, leftMotorB);
+motor rightMotorA = motor(PORT3, ratio6_1, true);
+motor rightMotorB = motor(PORT4, ratio6_1, true);
+motor_group RightDriveSmart = motor_group(rightMotorA, rightMotorB);
+inertial DrivetrainInertial = inertial(PORT5);
+smartdrive Drivetrain = smartdrive(LeftDriveSmart, RightDriveSmart, DrivetrainInertial, 319.19, 320, 40, mm, 0.5);
+
 
 /*---------------------------------------------------------------------------*/
 /*                          Pre-Autonomous Functions                         */
